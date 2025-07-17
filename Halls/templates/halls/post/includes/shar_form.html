@@ -1,0 +1,22 @@
+<form action="{% url "halls:halls_shar" halls.id %}" method="post">
+    {% csrf_token %}
+    <h4 class="mb-4"> اكتب تعليق </h4>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control" type="text" name="name" id="name" placeholder="الاسم:">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control" type="text" name="email" id="email" placeholder="البريد الألكتروني:">
+            </div>
+        </div>
+    </div>
+    
+    
+    <textarea class="form-control mb-4" name="body" id="body" cols="30" rows="5" placeholder="التعليق"></textarea>
+    
+    <input class="btn btn-main-2 btn-round-full" type="submit" name="submit-contact" id="submit_contact" value="ارسال الرسالة">
+
+</form>

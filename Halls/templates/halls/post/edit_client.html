@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="تعديل بيانات العميل">
+    <title>تعديل بيانات العميل</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit_client.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main">
+        <div class="signup">
+            <h2>تعديل بيانات العميل</h2> 
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" id="name" name="name" placeholder="الاسم" value="{{ client.name }}" required>
+                <input type="text" id="phone" name="phone" placeholder="الهاتف" value="{{ client.phone }}" required>
+                <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" value="{{ client.email }}" required>
+                <input type="password" id="old_password" name="old_password" placeholder="كلمة المرور الحالية" required>
+                <input type="password" id="new_password" name="new_password" placeholder="كلمة المرور الجديدة (اختياري)">
+                <button type="submit">تعديل</button>
+                {% if error %}
+                    <p class="error">{{ error }}</p> 
+                {% endif %}
+            </form>
+            <div class="back-link">
+                <a href="{% url 'halls:client_list' %}">عودة إلى الملف الشخصي</a> 
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

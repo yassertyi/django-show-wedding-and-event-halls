@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة أو تعديل صالة</title>
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+</head>
+<body>
+    <h1>{% if form.instance.pk %}تعديل صالة{% else %}إضافة صالة جديدة{% endif %}</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}تحديث{% else %}إضافة{% endif %}</button>
+    </form>
+    
+    <a href="{% url 'halls:client_list' %}">إلغاء</a>
+</body>
+</html>
+
+

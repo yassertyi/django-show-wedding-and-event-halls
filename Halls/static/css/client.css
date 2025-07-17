@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1300px; /* يمكنك تعديل هذه القيمة لزيادة عرض المحتوى */
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.client-profile {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.client-profile h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333; /* لون للنص */
+}
+
+.client-profile p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555; /* لون للنص */
+}
+
+table {
+    width: 100%; /* يجعل الجدول يستحوذ على عرض الصفحة بالكامل */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 15px; /* زيادة الحشو لتحسين حجم الخلايا */
+    text-align: center;
+}
+
+table th {
+    background-color: #f8f8f8;
+}
+
+table td img {
+    max-width: 200px; /* زيادة حجم الصورة داخل الجدول */
+}
+
+.btn-edit, .btn-delete {
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-edit {
+    background-color: #007bff;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* إضافة نمط خاص لحقل body */
+table td.body-column {
+    width: 40%; /* زيادة عرض عمود body */
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+/* تنسيق زر الإضافة */
+.btn-add {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #28a745; /* لون زر الإضافة */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.btn-add:hover {
+    background-color: #218838; /* لون عند التحويم */
+}
+
+/* تنسيق زر الحذف */
+.btn-delete {
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* لون عند التحويم */
+}
+
+.btn-back {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.btn-back:hover {
+    background-color: #45a049;
+}
+
+.logout-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
+
+.btn-logout {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #d32f2f;
+}

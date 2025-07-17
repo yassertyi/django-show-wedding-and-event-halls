@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/client.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+    <title>قائمة الصالات</title>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div>
+                <h2>{{ client.name }}</h2>
+                <p class="profile-info">
+                    البريد الإلكتروني: <br>{{ client.email }}<br> <br>
+                    رقم الهاتف: <br> {{ client.phone }}
+                </p>
+            </div>
+           
+        </div>
+         <div>
+            <a href="{% url 'halls:edit_client' %}" class="btn-edit-profile">تعديل بياناتي</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>قائمة الصالات</h1>
+        
+        <div class="logout-container">
+            <a href="{% url 'halls:logout' %}" class="btn-logout">تسجيل الخروج</a>
+        </div>
+        
+        <a href="{% url 'halls:halls_add' %}" class="btn-add">إضافة صالة</a>
+
+        <table dir="rtl">
+            <thead>
+                <tr>
+                    <th>الاسم</th>
+                    <th>السعة</th>
+                    <th>السعر</th>
+                    <th>العنوان</th>
+                    <th class="body-column">الوصف</th>
+                    <th>الصورة</th>
+                    <th>التعديل</th>
+                    <th>الحذف</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hall in halls %}
+                <tr>
+                    <td>{{ hall.name }}</td>
+                    <td>{{ hall.capacity }}</td>
+                    <td>{{ hall.price }}</td>
+                    <td>{{ hall.address }}</td>
+                    <td class="body-column">{{ hall.body }}</td>
+                    <td>
+                        {% if hall.photo %}
+                        <img src="{{ hall.photo.url }}" alt="{{ hall.name }}" style="width: 100px; height: auto;">
+                        {% else %}
+                        لا توجد صورة
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url 'halls:halls_edit' hall.id %}" class="btn-edit">تعديل</a></td>
+                    <td>
+                        <form action="{% url 'halls:halls_delete' hall.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-delete">حذف</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div class="pagination">
+    <span class="step-links">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-6 text-center">
+                <nav class="navigation pagination d-inline-block">
+                    <div class="nav-links d-flex justify-content-center">
+                        {% if page.has_previous %}
+                            <a class="prev page-numbers" href="?page={{ page.previous_page_number }}">السابق</a>
+                        {% endif %}
+
+                        {% for i in page.paginator.page_range %}
+                            {% if i == page.number %}
+                                <span aria-current="page" class="page-numbers current">{{ i }}</span>
+                            {% else %}
+                                <a class="page-numbers" href="?page={{ i }}">{{ i }}</a>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page.has_next %}
+                            <a class="next page-numbers" href="?page={{ page.next_page_number }}">التالي</a>
+                        {% endif %}
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </span>
+</div>

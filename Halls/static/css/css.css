@@ -1,0 +1,21 @@
+
+/* تحويل اتجاه النصوص والقوائم */
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+
+/* تحويل العناصر التي تحتوي على نصوص مثل القائمة الجانبية */
+.sidebar {
+    float: right;
+}
+
+.main-content {
+    float: left;
+}
+
+/* إذا كان لديك عناصر محددة تحتاج لتعديل اتجاهها */
+.text-right {
+    text-align: right;
+}

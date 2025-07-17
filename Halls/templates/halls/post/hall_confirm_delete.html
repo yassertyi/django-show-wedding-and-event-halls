@@ -1,0 +1,8 @@
+<h1>تأكيد الحذف</h1>
+<p>هل أنت متأكد أنك تريد حذف الصالة "{{ halls.name }}"؟</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">نعم، احذف</button>
+    <a href="{% url 'halls:client_list' %}">إلغاء</a>
+</form>

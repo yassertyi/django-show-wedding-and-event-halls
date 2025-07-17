@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+    <title>Sign Up / Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="main">    
+        
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <!-- Form Sign Up -->
+        <div class="signup">
+            
+            <form method="post" enctype="multipart/form-data" action="{% url 'halls:sign_up' %}">
+                
+                {% csrf_token %}
+                <label for="chk" aria-hidden="true">انشاء حساب</label>
+                <input type="text" name="name" placeholder="الاسم" required="">
+                <input type="email" name="email" placeholder="البريد الالكتروني" required="">
+                <input type="password" name="password" placeholder="كلمة السر" required="">
+                <input type="text" name="phone" placeholder="رقم الهاتف" required="">
+                <button type="submit" name="signup">موافق</button> 
+
+            </form>
+        </div>
+
+        <!-- Form Login -->
+         
+        <div class="login">
+            
+            <form method="post" action="{% url 'halls:sign_up' %}">
+                
+                {% csrf_token %}
+                <label for="chk" aria-hidden="true">تسجيل الدخول</label>
+                <input type="email" name="email" placeholder="البريد الإلكتروني" required="">
+                <input type="password" name="password" placeholder="كلمة السر" required="">
+                <button type="submit" name="login">تسجيل الدخول</button> 
+                {% if error %}
+                <p>{{ error }}</p> 
+                {% endif %}
+            </form>
+            
+        </div>
+  
+    </div>
+</body>
+</html>
